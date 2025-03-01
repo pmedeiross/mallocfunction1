@@ -2,22 +2,28 @@
 #include <stdlib.h>
 
 int main() {
-   
-        int a, b, soma, subtracao, multiplicacao, divisao;
+    int n;
+    printf("Digite o número de elementos: ");
+    scanf("%d", &n);
 
-        printf("***************** Bom dia *****************Hoje foi minha primeira aula de Prática de Programação!        *****************************************\n");
-        printf("Digite os dois valores:\n");
-        scanf("%d %d", &a, &b);
-        soma = a + b;
-        printf("soma eh: %d\n", soma);
-        subtracao = a - b;
-        printf("subtracao eh: %d\n", subtracao);
-        multiplicacao = a * b;
-        printf("multiplicacao eh: %d\n", multiplicacao);
-        divisao = a / b;
-        printf("divisao eh: %d\n", divisao);
-        
+    int *vetor = (int *)malloc(n * sizeof(int));
+    
+    if (vetor == NULL) {
+        printf("Erro ao alocar memória!\n");
+        return 1;
+    }
 
+    for (int i = 0; i < n; i++) {
+        vetor[i] = i + 1;
+    }
+
+    printf("Elementos do vetor: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
+
+    free(vetor);
 
     return 0;
 }
